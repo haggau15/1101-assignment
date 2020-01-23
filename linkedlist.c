@@ -17,8 +17,6 @@ struct list{
     cmpfunc_t cmp_func;
 };
 
-
-
 /*
  * Creates a new, empty list that uses the given comparison function
  * to compare elements.  The comparison function accepts two elements,
@@ -53,7 +51,7 @@ void list_destroy(list_t *list)
 {
     list_node *node=list->head;
     list_node *tmp=node;
-    while(node->next!=NULL)
+    while(node!=NULL)
     {
         tmp=node->next;
         free(node);
@@ -76,7 +74,14 @@ int list_size(list_t *list)
  */
 int list_addfirst(list_t *list, void *elem)
 {
-    return 1;
+    if(list==NULL)
+    {
+        return 1;
+    }
+    list_node *node =malloc(sizeof(list_node));
+    node->item=elem;
+    list->head=node;
+    return 0;
 }
 
 /*
