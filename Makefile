@@ -4,7 +4,7 @@ SORTWORDS_SRC=sortwords.c common.c $(LIST_SRC)
 REVERSEWORDS_SRC=reversewords.c common.c $(LIST_SRC)
 HEADERS=common.h list.h
 
-all: sortwords reversewords linkedlist
+all: sortwords reversewords 
 
 sortwords: $(SORTWORDS_SRC) $(HEADERS) Makefile
 	gcc -o $@ $(SORTWORDS_SRC)

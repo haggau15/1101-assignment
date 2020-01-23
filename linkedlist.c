@@ -71,13 +71,17 @@ void list_sort(list_t *list)
 
 }
 
+struct list_iter{
+    int dd;
+};
 
 /*
  * Creates a new list iterator for iterating over the given list.
  */
 list_iter_t *list_createiter(list_t *list)
 {
-    return list_iter_t *list;
+    list_iter_t *clist=malloc(sizeof(list_iter_t));
+    return clist;
 }
 
 /*
