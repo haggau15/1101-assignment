@@ -1,7 +1,6 @@
 /* Author: Steffen Viken Valvaag <steffenv@cs.uit.no> */
 #include "common.h"
 #include "list.h"
-#include "linkedlist.c"
 void fatal_error(char *msg)
 {
     fprintf(stderr, "fatal error: %s\n", msg);
