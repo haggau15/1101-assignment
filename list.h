@@ -7,7 +7,9 @@
 /*
  * The type of lists.
  */
+typedef struct node list_node;
 typedef struct list list_t;
+
 
 
 /*

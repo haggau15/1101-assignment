@@ -2,6 +2,18 @@
 #include "common.h"
 #include "list.h"
 
+struct node{
+    list_node *prev;
+    list_node *next;
+    void *item;
+};
+
+struct list{
+    list_node *tail;
+    list_node *head;
+    int size;
+};
+
 
 list_t *list_create(cmpfunc_t cmpfunc);
 
