@@ -1,6 +1,8 @@
-#include "stdio.h"
 #include "common.h"
 #include "list.h"
+
+void  *dinner();
+void sdfdsfds();
 
 struct node{
     list_node *prev;
@@ -12,10 +14,36 @@ struct list{
     list_node *tail;
     list_node *head;
     int size;
+    cmpfunc_t cmp_func;
 };
 
 
-list_t *list_create(cmpfunc_t cmpfunc);
+
+/*
+ * Creates a new, empty list that uses the given comparison function
+ * to compare elements.  The comparison function accepts two elements,
+ * and returns -1 if the first is smaller than the second, 1 if the
+ * first is greater than the second, and 0 if the elements are equal.
+ *
+ * Returns the new list.
+ */
+list_t *list_create(cmpfunc_t cmpfunc)
+{
+    list_t *list=malloc(sizeof(list_t));
+    list->cmp_func=cmpfunc;
+    list->size=0;
+    list->head=NULL;
+    list->tail=NULL;
+}
+
+void sdfdsfds()
+{
+    list_create(dinner());
+}
+void *dinner()
+{
+    return "dsfdsfd";
+}
 
 /*
  * Destroys the given list.  Subsequently accessing the list
@@ -23,7 +51,14 @@ list_t *list_create(cmpfunc_t cmpfunc);
  */
 void list_destroy(list_t *list)
 {
-
+    list_node *node=list->head;
+    list_node *tmp=node;
+    while(node->next!=NULL)
+    {
+        tmp=node->next;
+        free(node);
+        node=tmp;
+    }
 }
 
 /*
@@ -31,7 +66,8 @@ void list_destroy(list_t *list)
  */
 int list_size(list_t *list)
 {
-    return 1;
+  
+    return list->size;
 }
 
 /*
